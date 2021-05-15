@@ -43,8 +43,7 @@ public class PetDragon extends JavaPlugin  {
 		getLogger().log(Level.INFO, "Configuration has been successfully loaded!");
 		Bukkit.getScheduler().scheduleSyncDelayedTask(this, () ->
 			getLogger().log(Level.INFO, "If you really love this project, you could consider donating to help me keep this project alive! https://paypal.me/3ricL"));
-		
-		new DragonCommand(this);
+
 		eggManager = new EggManager(this);
 		DragonEvents dragonEvents = new DragonEvents(this);
 		getServer().getPluginManager().registerEvents(dragonEvents, this);

@@ -3,6 +3,7 @@ package com.ericdebouwer.petdragon.enderdragonNMS;
 import java.lang.reflect.Field;
 import java.util.Iterator;
 
+import com.ericdebouwer.petdragon.events.DragonDeathEvent;
 import net.minecraft.server.v1_15_R1.*;
 
 import org.bukkit.Location;
@@ -171,6 +172,9 @@ public class PetEnderDragon_v1_15_R1 extends EntityEnderDragon  implements PetEn
 	@Override
 	public void cD(){
 		++this.bA;
+
+		DragonDeathEvent event = new DragonDeathEvent(this.getEntity());
+		plugin.getServer().getPluginManager().callEvent(event);
 		
 		if (!plugin.getConfigManager().deathAnimation){
 			this.die();

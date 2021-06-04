@@ -3,6 +3,7 @@ package com.ericdebouwer.petdragon.enderdragonNMS;
 import java.lang.reflect.Field;
 import java.util.Iterator;
 
+import com.ericdebouwer.petdragon.events.DragonDeathEvent;
 import net.minecraft.server.v1_16_R1.*;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_16_R1.CraftWorld;
@@ -170,6 +171,9 @@ public class PetEnderDragon_v1_16_R1 extends EntityEnderDragon implements PetEnd
 	public void cT(){
 		
 		++this.deathAnimationTicks;
+
+		DragonDeathEvent event = new DragonDeathEvent(this.getEntity());
+		plugin.getServer().getPluginManager().callEvent(event);
 		
 		if (!plugin.getConfigManager().deathAnimation){
 			this.die();

@@ -1,3 +1,5 @@
 .idea
-target
-PetDragon.iml
+
+target/
+
+*.iml
